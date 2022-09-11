@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">photoapp</string>
+    <string name="note">Note: Press and hold to select multiple photos</string>
+</resources>
