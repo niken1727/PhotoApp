@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.photoapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -35,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.selectPictureLayout.setOnClickListener {
             urlList.clear()
-            val bottomSheet = UserInputBottomSheet{
+            val bottomSheet = UserInputBottomSheet {
                 listSize = it
                 openGalleryForImages()
             }
@@ -87,13 +91,13 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun getTriangularSequence() {
-        if(urlList.size != 2) {
+        if (urlList.size != 2) {
             Toast.makeText(this, "Please select two pictures", Toast.LENGTH_SHORT)
                 .show()
             return
         }
         val triangleSequenceList = ArrayList<Int>()
-        var allSequenceList = ArrayList<TriangleGallery>()
+        val allSequenceList = ArrayList<TriangleGallery>()
         for (i in 1..listSize) {
             triangleSequenceList.add(i * (i + 1) / 2)
         }

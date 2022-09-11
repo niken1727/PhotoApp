@@ -43,13 +43,6 @@ class InternalStoragePhotoAdapter(
         holder.binding.apply {
             Glide.with(context).load(photo.uri).into(ivPhoto)
             tvIndex.text = photo.index.toString()
-//            val bitmap = MediaStore.Images.Media.getBitmap(context.contentResolver, photo.uri)
-//            val aspectRatio = bitmap.width.toFloat() / bitmap.height.toFloat()
-//            ConstraintSet().apply {
-//                clone(root)
-//                setDimensionRatio(ivPhoto.id, aspectRatio.toString())
-//                applyTo(root)
-//            }
 
         }
     }
