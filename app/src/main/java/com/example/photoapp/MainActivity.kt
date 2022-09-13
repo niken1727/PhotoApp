@@ -108,8 +108,6 @@ class MainActivity : AppCompatActivity() {
                 allSequenceList.add(TriangleGallery(i, uri = urlList[1]))
             }
         }
-        allSequenceList.sortBy { it.index }
-        allSequenceList.toList().toSet().toList()
         internalStoragePhotoAdapter.submitList(allSequenceList)
     }
 }

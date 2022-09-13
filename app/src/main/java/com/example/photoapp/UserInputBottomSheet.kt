@@ -39,6 +39,10 @@ class UserInputBottomSheet(val listener: (Int) -> Unit) : BottomSheetDialogFragm
                 Toast.makeText(context, "Enter length of the list", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if(listEditText.text.toString().toInt() > 100) {
+                Toast.makeText(context, "Max Length of the list is 100", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             listener(listEditText.text.toString().toInt())
             dialog?.dismiss()
         }
